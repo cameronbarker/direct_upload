@@ -55,7 +55,7 @@ DirectUpload.csv(csv_arr, "filename.csv", s3_options = {})
 
 The below options can be passed through to `DirectUpload.file` or `DirectUpload.csv`.
 
-Direct Upload comes with default parameters of `expires: Time.now.utc + (60 * 60 * 24 * 1), acl: "public-read"`.
+Direct Upload comes with **default parameters** of `expires: Time.now.utc + (60 * 60 * 24 * 1), acl: "public-read"`.
 
 `:prefix_path` (String) - Path within S3 bucket the file should be saved to. i.e. "BUCKETNAME/prefix_path/filename"  
 `:multipart_threshold` (Integer) - default: 15728640 - Files larger than :multipart_threshold are uploaded using the S3 multipart APIs. Default threshold is 15MB.  
