@@ -37,14 +37,14 @@ end
 
 You can either upload a file or csv directly up to S3. The methods will return the string of a AWS S3 Url.
 
-File
+**File**
 
 ```ruby
 DirectUpload.file("path/to/file", "filename.txt", s3_options = {})
 DirectUpload.file(File_Object, "filename.txt", s3_options = {})
 ```
 
-CSV
+**CSV**
 
 ```ruby
 csv_arr = [[arr, of, arrs], [arr, of, arrs]]
@@ -53,32 +53,34 @@ DirectUpload.csv(csv_arr, "filename.csv", s3_options = {})
 
 ## S3 Options
 
-The below options can be passed through to `DirectUpload.file` or `DirectUpload.csv`. Direct Upload comes with default parameters of `expires: Time.now.utc + (60 * 60 * 24 * 1), acl: "public-read"`.
+The below options can be passed through to `DirectUpload.file` or `DirectUpload.csv`.
 
-:prefix_path (String) - Path within S3 bucket the file should be saved to. i.e. "BUCKETNAME/prefix_path/filename"
-:multipart_threshold (Integer) - default: 15728640 - Files larger than :multipart_threshold are uploaded using the S3 multipart APIs. Default threshold is 15MB.
-:acl (String) - The canned ACL to apply to the object.
-:cache_control (String) - Specifies caching behavior along the request/reply chain.
-:content_disposition (String) - Specifies presentational information for the object.
-:content_encoding (String) - Specifies what content encodings have been applied to the object and
-:content_language (String) - The language the content is in.
-:content_type (String) - A standard MIME type describing the format of the object data.
-:expires (Time) - The date and time at which the object is no longer cacheable.
-:grant_full_control (String) - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
-:grant_read (String) - Allows grantee to read the object data and its metadata.
-:grant_read_acp (String) - Allows grantee to read the object ACL.
-:grant_write_acp (String) - Allows grantee to write the ACL for the applicable object.
-:metadata (Hash) - A map of metadata to store with the object in S3.
-:server_side_encryption (String) - The Server-side encryption algorithm used when storing this object in S3
-:storage_class (String) - The type of storage to use for the object. Defaults to \'STANDARD\'.
-:website_redirect_location (String) - If the bucket is configured as a website, redirects requests for this
-:sse_customer_algorithm (String) - Specifies the algorithm to use to when encrypting the object (e.g.,
-:sse_customer_key (String) - Specifies the customer-provided encryption key for Amazon S3 to use in
-:sse_customer_key_md5 (String) - Specifies the 128-bit MD5 digest of the encryption key according to RFC
-:ssekms_key_id (String) - Specifies the AWS KMS key ID to use for object encryption. All GET and
-:request_payer (String) - Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html
-:tagging (String) - The tag-set for the object. The tag-set must be encoded as URL Query
-:use_accelerate_endpoint (Boolean) - When true, the "https://BUCKETNAME.s3-accelerate.amazonaws.com" endpoint will be used.
+Direct Upload comes with default parameters of `expires: Time.now.utc + (60 * 60 * 24 * 1), acl: "public-read"`.
+
+`:prefix_path` (String) - Path within S3 bucket the file should be saved to. i.e. "BUCKETNAME/prefix_path/filename"  
+`:multipart_threshold` (Integer) - default: 15728640 - Files larger than :multipart_threshold are uploaded using the S3 multipart APIs. Default threshold is 15MB.  
+`:acl` (String) - The canned ACL to apply to the object.  
+`:cache_control` (String) - Specifies caching behavior along the request/reply chain.  
+`:content_disposition` (String) - Specifies presentational information for the object.  
+`:content_encoding` (String) - Specifies what content encodings have been applied to the object and  
+`:content_language` (String) - The language the content is in.  
+`:content_type` (String) - A standard MIME type describing the format of the object data.  
+`:expires` (Time) - The date and time at which the object is no longer cacheable.  
+`:grant_full_control` (String) - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the  
+`:grant_read` (String) - Allows grantee to read the object data and its metadata.  
+`:grant_read_acp` (String) - Allows grantee to read the object ACL.  
+`:grant_write_acp` (String) - Allows grantee to write the ACL for the applicable object.  
+`:metadata` (Hash) - A map of metadata to store with the object in S3.  
+`:server_side_encryption` (String) - The Server-side encryption algorithm used when storing this object in S3  
+`:storage_class` (String) - The type of storage to use for the object. Defaults to \'STANDARD\'.  
+`:website_redirect_location` (String) - If the bucket is configured as a website, redirects requests for this  
+`:sse_customer_algorithm` (String) - Specifies the algorithm to use to when encrypting the object (e.g.,  
+`:sse_customer_key` (String) - Specifies the customer-provided encryption key for Amazon S3 to use in  
+`:sse_customer_key_md5` (String) - Specifies the 128-bit MD5 digest of the encryption key according to RFC  
+`:ssekms_key_id` (String) - Specifies the AWS KMS key ID to use for object encryption. All GET and  
+`:request_payer` (String) - Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html  
+`:tagging` (String) - The tag-set for the object. The tag-set must be encoded as URL Query  
+`:use_accelerate_endpoint` (Boolean) - When true, the "https://BUCKETNAME.s3-accelerate.amazonaws.com" endpoint will be used.
 
 ## Development
 
