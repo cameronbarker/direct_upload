@@ -1,5 +1,5 @@
 require 'singleton'
-require 'aws-sdk'
+require 'aws-sdk-s3'
 
 module DirectUpload
   class Configuration
