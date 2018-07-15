@@ -1,4 +1,4 @@
-require 'csv'
+require "csv"
 
 module DirectUpload
   module CSV
@@ -10,13 +10,11 @@ module DirectUpload
         end
       end
 
-      return file_path
+      file_path
     end
 
-    private
-
-    def self.temp_csv_file_path(file_name)
-      "#{File.expand_path '../../..', __FILE__}/tmp/#{file_name}"
+    private_class_method def self.temp_csv_file_path(file_name)
+      "#{File.expand_path('../../..', __dir__)}/tmp/#{file_name}"
     end
   end
 end

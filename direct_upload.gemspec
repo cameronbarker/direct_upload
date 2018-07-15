@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Upload to AWS S3 from the model"
   spec.description   = "Upload to AWS S3 from the model"
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/cameronbarker/direct_upload"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
