@@ -41,9 +41,9 @@ module DirectUpload
 
     attr_reader :options
 
-    def initialize(file_path, file_name, s3_connection, opt={})
+    def initialize(file, file_name, s3_connection, opt={})
       assign_options(opt)
-      @file_path = file_path.to_s
+      @file = file
       @file_name = file_name.to_s
       @connection = s3_connection
     end
@@ -51,7 +51,7 @@ module DirectUpload
     def upload
       obj = @connection.bucket(DirectUpload.config.aws_bucket_name).object(s3_path)
 
-      obj.upload_file(@file_path, @options)
+      obj.upload_file(@file, @options)
       @url = obj.public_url.to_s
       @url
     end
