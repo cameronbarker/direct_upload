@@ -11,10 +11,10 @@ module DirectUpload
 
     def csv(arr, file_name, opts={})
       csv = DirectUpload::CSV.new(arr)
-      csv.convert_to_file
+      temp_file = csv.convert_to_file
 
       begin
-        s3_url = DirectUpload::Uploader.new(csv.temp_file.path, file_name, connection, opts).upload
+        s3_url = DirectUpload::Uploader.new(temp_file, file_name, connection, opts).upload
       ensure
         csv.delete_file
       end
