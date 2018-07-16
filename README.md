@@ -35,7 +35,7 @@ end
 
 ## Usage
 
-You can either upload a file or csv directly up to S3. The methods will return the string of a AWS S3 Url.
+You can either upload a file or csv directly up to S3. The methods will return the string of a AWS S3 Url. Change something
 
 **File**
 
