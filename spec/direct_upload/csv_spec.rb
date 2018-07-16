@@ -2,10 +2,17 @@ module DirectUpload
   RSpec.describe CSV do
     it 'converts array to temporary file' do
       arrs = [[1], [2], [3]]
-      file_name = "csv_arr.csv"
-      file_path = DirectUpload::CSV.convert_to_file(arrs, file_name)
-      expect(Pathname.new(file_path)).to exist
-      File.delete(file_path)
+      csv = DirectUpload::CSV.new(arrs)
+      temp_file = csv.convert_to_file
+      expect(Pathname.new(temp_file.path)).to exist
+    end
+
+    it 'remove file' do
+      arrs = [[1], [2], [3]]
+      csv = DirectUpload::CSV.new(arrs)
+      temp_file = csv.convert_to_file
+      csv.delete_file
+      expect(temp_file.path).to eq(nil)
     end
   end
 end

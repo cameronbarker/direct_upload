@@ -1,20 +1,29 @@
 require "csv"
+require "tempfile"
 
 module DirectUpload
-  module CSV
-    def self.convert_to_file(arrs, file_name)
-      file_path = temp_csv_file_path(file_name)
-      ::CSV.open(file_path, "wb") do |csv|
-        arrs.each do |arr|
+  class CSV
+    attr_reader :temp_file
+    
+    def initialize(arrs)
+      @arrs = arrs
+      @temp_file = nil
+    end
+
+    def convert_to_file
+      temp_file = Tempfile.new()
+      ::CSV.open(temp_file, "wb") do |csv|
+        @arrs.each do |arr|
           csv << arr
         end
       end
 
-      file_path
+      @temp_file = temp_file
     end
 
-    private_class_method def self.temp_csv_file_path(file_name)
-      "#{File.expand_path('../../..', __dir__)}/tmp/#{file_name}"
+    def delete_file
+      @temp_file.close
+      @temp_file.unlink
     end
   end
 end
