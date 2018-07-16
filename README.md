@@ -7,7 +7,7 @@ Direct Upload creates a convenient way to upload and get urls for S3 buckets.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "direct_upload", :git => "git://github.com/cameronbarker/direct_upload.git"
+gem "direct_upload", :git => "https://github.com/cameronbarker/direct_upload.git"
 ```
 
 And then execute:
