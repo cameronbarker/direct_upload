@@ -26,17 +26,17 @@ module DirectUpload
     def file(file_or_file_path, file_name, opts={})
       DirectUpload::Uploader.new(file_or_file_path, file_name, connection, opts).upload
     end
-  end
 
-  def self.config
-    Configuration.instance
-  end
+    def config
+      Configuration.instance
+    end
 
-  def self.configure
-    yield config
-  end
+    def configure
+      yield config
+    end
 
-  def self.connection
-    Client.connection
+    def connection
+      Client.connection
+    end
   end
 end
